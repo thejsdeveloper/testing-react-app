@@ -3,7 +3,6 @@
 
 import * as React from 'react'
 import {render, fireEvent} from '@testing-library/react'
-import {toHaveTextContent} from '@testing-library/jest-dom'
 import Counter from '../../components/counter'
 
 test('counter increments and decrements when the buttons are clicked', () => {
