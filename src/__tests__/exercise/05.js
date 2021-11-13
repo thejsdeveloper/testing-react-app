@@ -35,7 +35,7 @@ const server = setupServer(
 )
 
 beforeAll(() => server.listen())
-// afterEach(() => server.resetHandlers())
+afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
 test(`logging in displays the user's username`, async () => {
