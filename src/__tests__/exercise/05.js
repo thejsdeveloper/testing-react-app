@@ -20,7 +20,7 @@ const buildLoginForm = build({
 // 🐨 get the server setup with an async function to handle the login POST request:
 // 💰 here's something to get you started
 
-const server = setupServer(handlers)
+const server = setupServer(...handlers)
 
 beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
@@ -33,6 +33,8 @@ test(`logging in displays the user's username`, async () => {
   userEvent.type(screen.getByLabelText(/username/i), username)
   userEvent.type(screen.getByLabelText(/password/i), password)
   userEvent.click(screen.getByRole('button', {name: /submit/i}))
+
+  // 📜 https://testing-library.com/docs/dom-testing-library/api-async#waitforelementtoberemoved
 
   await waitForElementToBeRemoved(() => screen.getByLabelText(/loading/i))
   expect(screen.getByText(username)).toBeInTheDocument()
