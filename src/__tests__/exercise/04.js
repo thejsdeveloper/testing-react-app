@@ -14,7 +14,7 @@ import {build, fake} from '@jackfranklin/test-data-bot'
 //   }
 // }
 
-const buildLoginForm = build('User', {
+const buildLoginForm = build({
   fields: {
     username: fake(f => f.internet.userName()),
     password: fake(f => f.internet.password()),
